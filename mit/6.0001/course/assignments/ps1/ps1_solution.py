@@ -1,0 +1,1 @@
+total_cost = float(input("Enter the total cost "))

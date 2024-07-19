@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman Game</title>
+</head>
+<body>
+    <h1>Hangman Game</h1>
+    <p>Category: {{ category }}</p>
+    <p>Word: {{ word }}</p>
+    <p>Guesses: {{ guesses }}</p>
+    <p>Wrong Guesses: {{ wrong_guesses }}</p>
+    <p>Filled Characters: {{ filled_chars }}</p>
+    <img src="{{ image_url }}" alt="Hangman Image">
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    {% if not game_over %}
+    <form action="{{ url_for('guess') }}" method="post">
+        <label for="guess">Enter a letter:</label>
+        <input type="text" name="guess" id="guess" maxlength="1" required>
+        <button type="submit">Guess</button>
+    </form>
+    {% endif %}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman Game</title>
+</head>
+<body>
+    <h1>Hangman Game</h1>
+    <p>Word: {{ ' '.join(guessed) }}</p>
+    <p>Wrong Guesses: {{ wrong_guesses }} / 6</p>
+    <form method="POST">
+        <label for="char">Guess a character:</label>
+        <input type="text" id="char" name="char" maxlength="1" required>
+        <button type="submit">Submit</button>
+    </form>
+    <img src="{{ url_for('static', filename='images/hangman' + str(wrong_guesses) + '.png') }}" alt="Hangman Image">
+</body>
+</html>
+
+
